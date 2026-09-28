@@ -1,0 +1,196 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "horizontalOverflow": false,
+      "overflowingText": [],
+      "tools": 10,
+      "brokenAnchors": []
+    },
+    {
+      "width": 1024,
+      "horizontalOverflow": false,
+      "overflowingText": [],
+      "tools": 10,
+      "brokenAnchors": []
+    },
+    {
+      "width": 390,
+      "horizontalOverflow": false,
+      "overflowingText": [],
+      "tools": 10,
+      "brokenAnchors": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "keyboard opens preview at 1440",
+      "passed": true
+    },
+    {
+      "name": "modal contains focus at 1440",
+      "passed": true
+    },
+    {
+      "name": "Escape closes preview at 1440",
+      "passed": true
+    },
+    {
+      "name": "focus restored at 1440",
+      "passed": true
+    },
+    {
+      "name": "energy filter at 1440",
+      "passed": true
+    },
+    {
+      "name": "spaces filter at 1440",
+      "passed": true
+    },
+    {
+      "name": "work filter at 1440",
+      "passed": true
+    },
+    {
+      "name": "search matches problem at 1440",
+      "passed": true
+    },
+    {
+      "name": "no results at 1440",
+      "passed": true
+    },
+    {
+      "name": "reset restores collection at 1440",
+      "passed": true
+    },
+    {
+      "name": "keyboard opens preview at 1024",
+      "passed": true
+    },
+    {
+      "name": "modal contains focus at 1024",
+      "passed": true
+    },
+    {
+      "name": "Escape closes preview at 1024",
+      "passed": true
+    },
+    {
+      "name": "focus restored at 1024",
+      "passed": true
+    },
+    {
+      "name": "energy filter at 1024",
+      "passed": true
+    },
+    {
+      "name": "spaces filter at 1024",
+      "passed": true
+    },
+    {
+      "name": "work filter at 1024",
+      "passed": true
+    },
+    {
+      "name": "search matches problem at 1024",
+      "passed": true
+    },
+    {
+      "name": "no results at 1024",
+      "passed": true
+    },
+    {
+      "name": "reset restores collection at 1024",
+      "passed": true
+    },
+    {
+      "name": "keyboard opens preview at 390",
+      "passed": true
+    },
+    {
+      "name": "modal contains focus at 390",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 1 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 2 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 3 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 4 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 5 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 6 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 7 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 8 fits",
+      "passed": true
+    },
+    {
+      "name": "mobile preview 9 fits",
+      "passed": true
+    },
+    {
+      "name": "Escape closes preview at 390",
+      "passed": true
+    },
+    {
+      "name": "focus restored at 390",
+      "passed": true
+    },
+    {
+      "name": "energy filter at 390",
+      "passed": true
+    },
+    {
+      "name": "spaces filter at 390",
+      "passed": true
+    },
+    {
+      "name": "work filter at 390",
+      "passed": true
+    },
+    {
+      "name": "search matches problem at 390",
+      "passed": true
+    },
+    {
+      "name": "no results at 390",
+      "passed": true
+    },
+    {
+      "name": "reset restores collection at 390",
+      "passed": true
+    },
+    {
+      "name": "reduced motion",
+      "passed": true
+    },
+    {
+      "name": "Home CTA reaches Lab at 1440",
+      "passed": true
+    },
+    {
+      "name": "Home CTA reaches Lab at 390",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

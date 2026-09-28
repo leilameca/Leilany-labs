@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "name": "Spanish dark / 1440",
+      "passed": true
+    },
+    {
+      "name": "no overflow / 1440",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab 1440",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab 1440",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab/solarcalc 1440",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab/solarcalc 1440",
+      "passed": true
+    },
+    {
+      "name": "translated result",
+      "passed": true
+    },
+    {
+      "name": "country prefix filtering",
+      "passed": true
+    },
+    {
+      "name": "country selection clears search",
+      "passed": true
+    },
+    {
+      "name": "language keeps form data",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab/electricity-consumption 1440",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab/electricity-consumption 1440",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark / 390",
+      "passed": true
+    },
+    {
+      "name": "no overflow / 390",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab 390",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab 390",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab/solarcalc 390",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab/solarcalc 390",
+      "passed": true
+    },
+    {
+      "name": "translated result",
+      "passed": true
+    },
+    {
+      "name": "country prefix filtering",
+      "passed": true
+    },
+    {
+      "name": "country selection clears search",
+      "passed": true
+    },
+    {
+      "name": "language keeps form data",
+      "passed": true
+    },
+    {
+      "name": "Spanish dark /lab/electricity-consumption 390",
+      "passed": true
+    },
+    {
+      "name": "no overflow /lab/electricity-consumption 390",
+      "passed": true
+    },
+    {
+      "name": "preferences persist",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

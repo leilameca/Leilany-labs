@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "name": "no overflow 1440",
+      "passed": true
+    },
+    {
+      "name": "three example loads 1440",
+      "passed": true
+    },
+    {
+      "name": "monthly total 228 1440",
+      "passed": true
+    },
+    {
+      "name": "add appliance",
+      "passed": true
+    },
+    {
+      "name": "invalid load pauses flow",
+      "passed": true
+    },
+    {
+      "name": "reset appliance example",
+      "passed": true
+    },
+    {
+      "name": "no overflow 1024",
+      "passed": true
+    },
+    {
+      "name": "three example loads 1024",
+      "passed": true
+    },
+    {
+      "name": "monthly total 228 1024",
+      "passed": true
+    },
+    {
+      "name": "no overflow 390",
+      "passed": true
+    },
+    {
+      "name": "three example loads 390",
+      "passed": true
+    },
+    {
+      "name": "monthly total 228 390",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

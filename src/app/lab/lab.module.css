@@ -1,0 +1,334 @@
+.page {
+  --lab-space: 28px;
+  --lab-surface: #f4f4ee;
+}
+
+.page button, .page input { font: inherit; }
+:global([data-theme="dark"]) .art { --color-ink: #252725; --color-paper: #ffffff; color: #252725; }
+:global([data-theme="dark"]) .quote .art, :global([data-theme="dark"]) .work .art { color: #ffffff; }
+:global([data-theme="dark"]) .dialogTop button { color: var(--color-ink); }
+:global([data-theme="dark"]) .spaces .previewButton > span { color: #252725; }
+.page button { cursor: pointer; touch-action: manipulation; }
+.page button:focus-visible, .page input:focus-visible {
+  outline: 3px solid var(--color-solar-blue);
+  outline-offset: 5px;
+}
+.page button:disabled { opacity: .45; cursor: default; }
+.main { width: min(calc(100% - var(--page-gutter) * 2), var(--max-page)); margin-inline: auto; }
+.intro { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-block: 40px 44px; }
+.eyebrow { color: var(--color-ink-soft); font-size: 11px; font-weight: 700; text-transform: uppercase; line-height: 1.5; }
+.intro .eyebrow { color: var(--color-solar-blue); margin-bottom: 12px; }
+.intro h1 { font-size: 64px; font-weight: 750; line-height: 1.1; }
+.intro h1 > span { color: var(--color-solar-blue); }
+.introCopy { max-width: 400px; padding-bottom: 4px; }
+.introCopy > p { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+.introCopy > span { color: var(--color-ink-soft); font-size: 15px; }
+.discovery { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-block: 1px solid var(--color-line); padding-block: 14px; }
+.categories { display: flex; gap: 20px; }
+.categories > button { display: inline-flex; align-items: center; gap: 7px; min-height: 46px; padding: 8px 0; border: 0; background: transparent; font-size: 14px; font-weight: 600; color: var(--color-ink-soft); position: relative; white-space: nowrap; }
+.categories > button > span { font-size: 10px; font-family: var(--font-mono); opacity: .8; }
+.categories > button[aria-pressed="true"] { color: var(--color-solar-blue); }
+.categories > button[aria-pressed="true"]::after { content: ""; position: absolute; bottom: -15px; height: 3px; background: currentColor; left: 0; right: 0; border-radius: 3px; }
+.categories > button:hover { color: var(--color-solar-blue); }
+.searchBox { position: relative; width: 346px; flex-shrink: 0; }
+.searchBox label { position: absolute; top: -10px; left: 12px; padding-inline: 4px; background: var(--color-canvas); font-size: 11px; color: var(--color-ink-soft); }
+.searchBox input { min-width: 0; width: 100%; height: 46px; background: transparent; border: 1px solid var(--color-line); border-radius: 6px; padding: 10px 60px 10px 15px; font-size: 14px; color: var(--color-ink); }
+.searchBox input::placeholder { color: var(--color-ink-soft); opacity: 1; }
+.searchBox input::-webkit-search-cancel-button { display: none; }
+.searchBox > button { position: absolute; top: 1px; right: 6px; min-height: 44px; min-width: 44px; border: 0; background: transparent; color: var(--color-solar-blue); font-size: 12px; }
+.collectionNote { display: flex; justify-content: space-between; gap: 16px; padding-block: 18px 4px; font-size: 12px; color: var(--color-ink-soft); }
+.collectionNote > p { color: var(--color-ink); }
+.chapter { padding-block: 34px 36px; }
+.chapterHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+.chapterHeading .eyebrow { margin-bottom: 7px; }
+.chapterHeading h2 { font-size: 26px; line-height: 1.2; font-weight: 650; }
+.chapterHeading > p { color: var(--color-ink-soft); font-size: 13px; max-width: 330px; }
+.shelf { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px var(--lab-space); }
+.tool { position: relative; min-width: 0; isolation: isolate; }
+.art { height: 260px; position: relative; overflow: hidden; background: var(--art-background); color: var(--world-ink, var(--color-ink)); border-radius: var(--radius-card); }
+.number { position: absolute; top: 18px; left: 20px; z-index: 1; font-family: var(--font-mono); font-size: 10px; }
+.unit { position: absolute; bottom: 17px; right: 20px; z-index: 1; font-family: var(--font-mono); font-size: 11px; font-weight: 500; }
+.toolCopy { padding: 20px 2px 0; }
+.toolCopy h3 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+.tagline { margin-top: 6px; font-size: 15px; font-weight: 500; }
+.description { color: var(--color-ink-soft); font-size: 14px; margin-top: 10px; line-height: 1.6; max-width: 390px; }
+.previewButton { display: flex; gap: 28px; justify-content: space-between; align-items: center; min-height: 46px; width: 100%; border: 0; background: transparent; padding: 8px 0; font-size: 12px !important; font-weight: 600 !important; color: var(--color-ink); margin-top: 14px; border-bottom: 1px solid var(--color-line); }
+.previewButton::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: 8px; }
+.previewButton > span { font-size: 22px; line-height: 1; color: var(--color-solar-blue); transition: transform 180ms ease; }
+.tool:hover .previewButton, .tool:focus-within .previewButton { color: var(--color-solar-blue); }
+.tool:hover .previewButton > span { transform: translateX(3px); }
+.tool:active .previewButton > span { transform: translateX(0); }
+.solar { --art-background: var(--color-solar-yellow); --world-ink: var(--color-ink); }
+.power { --art-background: var(--color-power-cyan); }
+.battery { --art-background: var(--color-battery-green); --world-ink: var(--color-green-ink); }
+.construction { --art-background: var(--color-construction-sand); }
+.paint { --art-background: var(--color-paint-pink); --world-ink: var(--color-pink-ink); }
+.climate { --art-background: var(--color-climate-ice); --world-ink: var(--color-violet-ink); }
+.finance { --art-background: var(--color-finance-violet); --world-ink: var(--color-violet-ink); }
+.quote { --art-background: var(--color-quote-blue); --world-ink: var(--color-paper); }
+.furniture { --art-background: var(--color-furniture-orange); --world-ink: var(--color-ink); }
+.work { --art-background: var(--color-work-blue); --world-ink: var(--color-paper); }
+.energy .solar { grid-column: 1 / -1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; padding-bottom: 12px; }
+.energy .solar .art { height: 320px; }
+.energy .solar .toolCopy { padding: 12px 20px 12px 0; }
+.firstUp { font-size: 10px; font-weight: 650; color: var(--color-solar-blue); display: block; margin-bottom: 15px; }
+.energy .solar h3 { font-size: 40px; font-weight: 700; }
+.energy .solar .tagline { font-size: 20px; margin-top: 10px; }
+.energy .solar .description { font-size: 16px; margin-top: 14px; max-width: 320px; }
+.energy .solar .previewButton { width: fit-content; gap: 50px; border-bottom: 0; color: var(--color-solar-blue); margin-top: 22px; font-size: 14px !important; }
+.solarGreeting { position: absolute; bottom: 20px; left: 25px; font-size: 24px; font-weight: 650; }
+.solar .art :global(.solar-panel) { top: 30%; left: 37%; width: 51%; height: 38%; }
+.solar .art :global(.panel-stand) { left: 46%; top: 58%; width: 35%; height: 20%; }
+.solar .art :global(.sun-disc) { width: 82px; height: 82px; left: 12%; top: 25%; }
+.solar .art :global(.solar-cloud) { left: 28%; top: 22%; }
+.energy .power, .energy .battery { display: grid; grid-template-columns: .95fr 1fr; gap: 22px; align-items: center; }
+.energy .power .art, .energy .battery .art { height: 245px; }
+.energy .power .toolCopy, .energy .battery .toolCopy { padding-top: 0; }
+.energy .power h3, .energy .battery h3 { font-size: 22px; }
+.energy .description { font-size: 13px; }
+.energy .power .tagline, .energy .battery .tagline { font-size: 14px; }
+.power .art :global(.power-readout) { top: 26%; left: 40%; width: 50%; height: 56%; padding: 12px; }
+.power .art :global(.power-readout) > span { font-size: 8px; }
+.power .art :global(.power-readout) > strong { font-size: 25px; }
+.power .art :global(.usage-bars) { height: 44px; gap: 4px; margin-top: 8px; }
+.power .art :global(.power-plug) { top: 33%; width: 35px; height: 52px; }
+.power .art :global(.power-plug) i { width: 6px; left: 7px; height: 18px; top: -16px; }
+.power .art :global(.power-plug) i + i { left: 22px; }
+.power .art :global(.power-cable) { border-width: 8px; top: 48%; height: 31%; }
+.battery .art :global(.battery-unit) { width: 28%; left: 14%; top: 28%; height: 43%; }
+.battery .art :global(.battery-reading) { left: 53%; top: 35%; }
+.battery .art :global(.battery-reading) strong { font-size: 32px; }
+.battery .art :global(.battery-reading) > span { font-size: 7px; max-width: 80px; }
+.battery .art :global(.battery-caption) { display: none; }
+.spaces { grid-template-columns: 1.08fr 1fr; row-gap: 36px; }
+.spaces .toolCopy { display: grid; grid-template-columns: 1fr auto; gap: 0 20px; }
+.spaces .toolCopy h3, .spaces .toolCopy .tagline, .spaces .toolCopy .description { grid-column: 1; }
+.spaces .previewButton { grid-column: 2; grid-row: 1 / 4; align-self: center; flex-direction: column-reverse; justify-content: center; gap: 8px; border: 0; margin-top: 0; min-width: 95px; font-size: 11px !important; }
+.spaces .previewButton > span { display: grid; place-items: center; height: 40px; width: 40px; background: var(--art-background); border-radius: 50%; color: var(--color-ink); }
+.spaces .description { font-size: 13px; margin-top: 8px; }
+.construction .art :global(.brick-stack) { left: 30%; width: 50%; top: 35%; height: 43%; }
+.construction .art :global(.build-dimension) { left: 28%; width: 54%; top: 20%; }
+.construction .art :global(.build-ruler) { left: 13%; bottom: 20px; width: 55%; }
+.paint .art :global(.paint-wall) { left: 13%; top: 18%; width: 64%; height: 60%; }
+.paint .art :global(.paint-roller) { top: 32%; left: 60%; width: 22%; }
+.paint .art :global(.paint-swatches) { left: auto; right: 6%; bottom: 65px; flex-direction: column; }
+.climate .art :global(.ac-unit) { top: 25%; left: 12%; width: 55%; height: 28%; }
+.climate .art :global(.temperature) { right: 12%; bottom: 25%; font-size: 58px; }
+.climate .art :global(.airflow) { left: 23%; top: 56%; }
+.climate .art :global(.climate-caption) { left: 13%; bottom: 22px; }
+.furniture .art :global(.desk) { left: 18%; top: 30%; width: 60%; height: 48%; }
+.furniture .art :global(.wood-samples) { right: 23px; top: 68px; bottom: auto; flex-direction: column; }
+.furniture .art :global(.wood-samples) i { height: 22px; width: 28px; }
+.furniture .art :global(.furniture-caption) { display: none; }
+.work.shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.work .toolCopy h3 { font-size: 23px; }
+.work .art { height: 275px; }
+.finance .art :global(.finance-chart) { top: 22%; height: 47%; }
+.finance .art :global(.finance-axis) { top: 72%; }
+.finance .art :global(.finance-caption) { bottom: 20px; font-size: 9px; max-width: 130px; }
+.quote .art :global(.quote-sheet) { top: 19%; left: 24%; width: 52%; min-height: 185px; }
+.quote .art :global(.quote-seal) { right: 16%; }
+.work .art :global(.work-calendar) { top: 24%; left: 13%; width: 70%; padding: 16px; }
+.work .art :global(.work-tab) { top: 46%; right: 10%; }
+.work .art :global(.work-caption) { left: 20px; bottom: 42px; font-size: 14px; }
+.tool :global(.battery-unit i), .tool :global(.finance-chart i), .tool :global(.usage-bars i) { transition: transform 250ms ease, opacity 250ms ease; transform-origin: bottom; }
+.tool :global(.finance-chart i), .tool :global(.usage-bars i) { transform: scaleY(.88); }
+.tool:hover :global(.finance-chart i), .tool:focus-within :global(.finance-chart i), .tool:hover :global(.usage-bars i), .tool:focus-within :global(.usage-bars i) { transform: scaleY(1); }
+.tool :global(.battery-unit i:first-child) { opacity: .45; }
+.tool:hover :global(.battery-unit i:first-child), .tool:focus-within :global(.battery-unit i:first-child) { opacity: 1; }
+.tool :global(.sun-disc), .tool :global(.paint-color) { transition: transform 250ms ease; }
+.tool:hover :global(.sun-disc), .tool:focus-within :global(.sun-disc) { transform: translateY(-7px); }
+.tool:hover :global(.paint-color), .tool:focus-within :global(.paint-color) { transform: translateX(-8px); }
+.tool :global(.airflow) { transition: transform 250ms ease; }
+.tool:hover :global(.airflow), .tool:focus-within :global(.airflow) { transform: translateY(5px); }
+.endnote { padding-block: 40px 64px; display: flex; justify-content: space-between; gap: 24px; font-size: 13px; color: var(--color-ink-soft); }
+.endnote > span { color: var(--color-ink); }
+.empty { text-align: center; padding: 76px 20px 100px; min-height: 400px; }
+.emptyMark { font-size: 52px; font-weight: 650; color: var(--color-solar-blue); display: block; margin-bottom: 12px; }
+.empty h2 { font-size: 26px; }
+.empty p { color: var(--color-ink-soft); margin-top: 14px; }
+.solidButton { display: inline-flex; align-items: center; min-height: 46px; padding: 10px 20px; background: var(--color-solar-blue); color: var(--color-paper); border: 0; border-radius: 6px; margin-top: 22px; font-size: 14px !important; }
+.solidButton:hover { background: var(--color-panel); }
+.dialog { width: min(680px, calc(100% - 32px)); max-height: calc(100dvh - 48px); border: 0; border-radius: 8px; margin: auto; padding: 0; color: var(--color-ink); background: var(--color-canvas); box-shadow: 0 16px 64px #25272530; }
+.dialog::backdrop { background: #25272580; }
+.dialogContent { padding: 0; }
+.dialogTop { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 8px 24px; }
+.dialogTop > span { font-family: var(--font-mono); font-size: 10px; }
+.dialogTop button { border: 0; background: transparent; min-height: 44px; min-width: 72px; font-size: 13px; display: flex; align-items: center; justify-content: end; gap: 12px; }
+.dialogTop button > span { font-size: 24px; }
+.dialogArt .art { height: 220px; border-radius: 0; }
+.dialogArt { --world-ink: var(--color-ink); }
+.dialogArt.quote, .dialogArt.work { --world-ink: var(--color-paper); }
+.dialogArt.solar .art :global(.solar-panel) { width: 30%; left: 47%; top: 20%; height: 49%; }
+.dialogArt.solar .art :global(.panel-stand) { width: 20%; left: 53%; top: 52%; height: 30%; }
+.dialogArt.solar .art :global(.sun-disc) { left: 23%; top: 17%; }
+.dialogArt.power .art :global(.power-readout) { width: 31%; left: 45%; height: 65%; top: 12%; }
+.dialogArt.power .art :global(.power-plug) { left: 24%; }
+.dialogArt.power .art :global(.power-cable) { left: 25%; width: 22%; height: 37%; top: 40%; }
+.dialogArt.battery .art :global(.battery-unit) { width: 15%; height: 56%; left: 30%; top: 20%; }
+.dialogArt.battery .art :global(.battery-reading) { left: 53%; }
+.dialogArt.construction .art :global(.brick-stack) { width: 40%; left: 32%; }
+.dialogArt.construction .art :global(.build-dimension) { width: 40%; left: 32%; top: 16%; }
+.dialogArt.construction .art :global(.build-ruler) { left: 32%; width: 34%; bottom: 10px; }
+.dialogArt.paint .art :global(.paint-wall) { width: 42%; left: 27%; top: 16%; height: 60%; }
+.dialogArt.paint .art :global(.paint-roller) { width: 15%; left: 56%; top: 25%; }
+.dialogArt.paint .art :global(.paint-swatches) { right: 22%; bottom: 50px; }
+.dialogArt.climate .art :global(.ac-unit) { width: 48%; left: 20%; top: 19%; }
+.dialogArt.climate .art :global(.airflow) { left: 29%; top: 51%; }
+.dialogArt.climate .art :global(.temperature) { right: 18%; bottom: 18%; }
+.dialogArt.finance .art :global(.finance-chart) { width: 46%; left: 28%; top: 5%; height: 65%; }
+.dialogArt.finance .art :global(.finance-axis) { width: 46%; left: 28%; top: 74%; }
+.dialogArt.finance .art :global(.finance-coin) { left: 31%; top: 20%; }
+.dialogArt.finance .art :global(.finance-caption) { display: none; }
+.dialogArt.quote .art :global(.quote-sheet) { top: 15px; left: 36%; width: 30%; min-height: 180px; }
+.dialogArt.quote .art :global(.quote-seal) { right: 30%; }
+.dialogArt.furniture .art :global(.desk) { width: 44%; left: 27%; top: 30%; height: 47%; }
+.dialogArt.furniture .art :global(.wood-samples) { right: 19%; top: 55px; }
+.dialogArt.work .art :global(.work-calendar) { width: 40%; left: 29%; top: 18%; }
+.dialogArt.work .art :global(.work-tab) { right: 25%; top: 39%; }
+.dialogArt.work .art :global(.work-caption) { display: none; }
+.dialogCopy { padding: 24px 30px 12px; }
+.dialogCopy h2 { font-size: 30px; }
+.question { margin-top: 8px; color: var(--color-ink-soft); font-size: 16px; }
+.previewScope { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin-top: 28px; }
+.previewScope h3 { font-size: 13px; font-weight: 700; }
+.previewScope ul { padding-left: 16px; margin: 10px 0 0; font-size: 13px; line-height: 1.7; color: var(--color-ink-soft); }
+.previewScope li + li { margin-top: 4px; }
+.comingSoon { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--color-line); font-size: 12px; color: var(--color-ink-soft); }
+.dialogFooter { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 10px; font-size: 11px; color: var(--color-ink-soft); }
+.dialogFooter > button { min-height: 44px; border: 0; background: transparent; color: var(--color-solar-blue); font-size: 13px; display: flex; align-items: center; gap: 16px; }
+@media (max-width: 1100px) {
+  .introCopy { max-width: 340px; }
+  .intro h1 { font-size: 56px; }
+  .discovery { flex-wrap: wrap; gap: 22px; }
+  .categories { gap: 22px; }
+  .searchBox { width: 300px; }
+  .searchBox input { font-size: 13px; }
+  .energy .solar { gap: 32px; }
+  .energy .solar .art { height: 300px; }
+  .energy .power, .energy .battery { display: block; }
+  .energy .power .art, .energy .battery .art { height: 230px; }
+  .energy .power .toolCopy, .energy .battery .toolCopy { padding-top: 18px; }
+  .power .art :global(.power-readout) { width: 40%; left: 45%; }
+  .power .art :global(.power-plug) { left: 20%; }
+  .power .art :global(.power-cable) { left: 21%; width: 26%; }
+  .battery .art :global(.battery-unit) { width: 22%; left: 24%; }
+  .battery .art :global(.battery-reading) { left: 55%; }
+  .spaces .toolCopy { display: block; }
+  .spaces .previewButton { flex-direction: row; justify-content: space-between; width: 100%; margin-top: 14px; border-bottom: 1px solid var(--color-line); font-size: 12px !important; }
+  .spaces .previewButton > span { background: transparent; width: auto; color: var(--color-solar-blue); }
+  .work.shelf { gap: 20px; }
+  .work .toolCopy h3 { font-size: 22px; }
+  .work .tagline { font-size: 14px; }
+  .work .art :global(.work-caption) { bottom: 47px; }
+  .work .art :global(.work-calendar) { padding: 12px; }
+  .finance .art :global(.finance-caption) { display: none; }
+}
+@media (max-width: 800px) {
+  .intro { gap: 24px; }
+  .introCopy { max-width: 290px; }
+  .introCopy > p { font-size: 20px; }
+  .discovery { flex-direction: column-reverse; align-items: stretch; padding-block: 20px 0; }
+  .searchBox { width: 100%; }
+  .searchBox input { font-size: 16px; }
+  .categories { justify-content: space-between; gap: 12px; }
+  .categories > button[aria-pressed="true"]::after { bottom: -1px; }
+  .chapterHeading { display: block; }
+  .chapterHeading > p { margin-top: 12px; max-width: none; }
+  .energy .solar { gap: 24px; }
+  .energy .solar h3 { font-size: 32px; }
+  .energy .solar .tagline { font-size: 17px; }
+  .energy .solar .description { font-size: 14px; }
+  .solarGreeting { font-size: 21px; }
+  .work.shelf { grid-template-columns: 1fr; }
+  .work.shelf .tool { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+  .work.shelf .toolCopy { padding-top: 0; }
+  .work .art { height: 250px; }
+}
+@media (max-width: 600px) {
+  .intro { display: block; padding-block: 24px 30px; }
+  .intro h1 { font-size: 48px; }
+  .introCopy { margin-top: 20px; max-width: 350px; }
+  .introCopy > p { font-size: 19px; margin-bottom: 6px; }
+  .introCopy > span { font-size: 14px; }
+  .intro .eyebrow { font-size: 10px; }
+  .categories { gap: 8px; flex-wrap: wrap; }
+  .categories > button { gap: 4px; font-size: 12px; }
+  .categories > button > span { font-size: 9px; }
+  .collectionNote { display: block; font-size: 11px; padding-top: 16px; }
+  .collectionNote > span { display: block; margin-top: 5px; }
+  .chapter { padding-block: 30px; }
+  .chapterHeading { margin-bottom: 22px; }
+  .chapterHeading h2 { font-size: 24px; max-width: 290px; }
+  .chapterHeading > p { font-size: 13px; }
+  .shelf, .spaces, .work.shelf { grid-template-columns: 1fr; gap: 32px; }
+  .energy .solar, .work.shelf .tool { display: block; grid-column: auto; }
+  .energy .solar { padding-bottom: 0; }
+  .energy .solar .art { height: 265px; }
+  .energy .solar .toolCopy { padding: 20px 2px 0; }
+  .energy .solar h3 { font-size: 30px; }
+  .energy .solar .description { margin-top: 10px; font-size: 14px; max-width: none; }
+  .energy .solar .previewButton { margin-top: 14px; width: 100%; border-bottom: 1px solid var(--color-line); font-size: 12px !important; }
+  .firstUp { margin-bottom: 10px; }
+  .solar .art :global(.sun-disc) { width: 65px; height: 65px; }
+  .solar .unit { font-size: 9px; }
+  .solarGreeting { font-size: 21px; }
+  .art, .work .art { height: 240px; }
+  .toolCopy h3, .work .toolCopy h3 { font-size: 23px; }
+  .tagline, .work .tagline { font-size: 15px; }
+  .description, .spaces .description, .energy .description { font-size: 14px; }
+  .work.shelf .toolCopy { padding-top: 18px; }
+  .spaces .previewButton { min-height: 46px; }
+  .climate .art :global(.temperature) { font-size: 44px; right: 10%; bottom: 19%; }
+  .climate .art :global(.airflow) { left: 19%; }
+  .work .art :global(.work-calendar) { width: 60%; left: 20%; top: 20%; }
+  .work .art :global(.work-caption) { bottom: 43px; }
+  .endnote { flex-direction: column; gap: 5px; padding-block: 25px 45px; font-size: 12px; }
+  .dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .dialogTop { padding-inline: 16px; gap: 8px; }
+  .dialogTop > span { font-size: 9px; }
+  .dialogCopy { padding: 20px 20px 12px; }
+  .dialogCopy h2 { font-size: 27px; }
+  .question { font-size: 15px; }
+  .previewScope { grid-template-columns: 1fr; gap: 18px; margin-top: 24px; }
+  .previewScope ul { font-size: 14px; }
+  .dialogArt .art { height: 190px; }
+  .dialogArt.solar .art :global(.solar-panel) { width: 43%; left: 44%; top: 27%; height: 39%; }
+  .dialogArt.solar .art :global(.panel-stand) { width: 30%; left: 51%; }
+  .dialogArt.solar .art :global(.sun-disc) { left: 14%; }
+  .dialogArt.power .art :global(.power-readout) { width: 42%; left: 43%; top: 16%; }
+  .dialogArt.power .art :global(.power-cable) { left: 17%; width: 29%; top: 44%; }
+  .dialogArt.power .art :global(.power-plug) { left: 16%; }
+  .dialogArt.battery .art :global(.battery-unit) { width: 24%; left: 20%; height: 53%; }
+  .dialogArt.construction .art :global(.brick-stack) { width: 53%; left: 26%; height: 35%; }
+  .dialogArt.construction .art :global(.build-dimension) { width: 53%; left: 26%; }
+  .dialogArt.construction .art :global(.build-ruler) { width: 44%; left: 20%; bottom: 12px; }
+  .dialogArt.paint .art :global(.paint-wall) { width: 57%; left: 16%; }
+  .dialogArt.paint .art :global(.paint-roller) { width: 22%; }
+  .dialogArt.paint .art :global(.paint-swatches) { right: 9%; bottom: 57px; gap: 4px; }
+  .dialogArt.paint .art :global(.paint-swatches) i { width: 17px; height: 17px; }
+  .dialogArt.climate .art :global(.ac-unit) { left: 12%; width: 58%; }
+  .dialogArt.climate .art :global(.airflow) { left: 20%; }
+  .dialogArt.climate .art :global(.temperature) { right: 12%; font-size: 36px; }
+  .dialogArt.finance .art :global(.finance-chart) { width: 58%; left: 23%; }
+  .dialogArt.finance .art :global(.finance-axis) { width: 58%; left: 23%; }
+  .dialogArt.quote .art :global(.quote-sheet) { left: 25%; width: 49%; min-height: 165px; padding: 11px; }
+  .dialogArt.quote .art :global(.quote-sheet) > strong { font-size: 18px; margin-block: 8px 10px; }
+  .dialogArt.quote .art :global(.quote-seal) { right: 17%; }
+  .dialogArt.furniture .art :global(.desk) { width: 56%; left: 20%; }
+  .dialogArt.furniture .art :global(.wood-samples) { right: 9%; top: 45px; }
+  .dialogArt.work .art :global(.work-calendar) { width: 60%; left: 20%; top: 16%; padding: 10px; }
+  .dialogArt.work .art :global(.work-tab) { right: 13%; }
+  .comingSoon { font-size: 12px; margin-top: 22px; }
+  .dialogFooter { flex-wrap: wrap; gap: 0 12px; }
+}
+@media (max-width: 360px) {
+  .categories > button { font-size: 11px; }
+  .categories { gap: 6px; }
+  .categories > button > span { font-size: 8px; }
+  .spaces .toolCopy h3 { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { transition: none !important; animation: none !important; }
+  .tool:hover :global(.sun-disc), .tool:hover :global(.airflow), .tool:hover :global(.paint-color), .tool:focus-within :global(.sun-disc), .tool:focus-within :global(.airflow), .tool:focus-within :global(.paint-color) { transform: none; }
+}

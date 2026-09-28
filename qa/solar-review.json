@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "name": "no overflow 1440",
+      "passed": true
+    },
+    {
+      "name": "11 initial panels 1440",
+      "passed": true
+    },
+    {
+      "name": "results revealed 1440",
+      "passed": true
+    },
+    {
+      "name": "production 858 1440",
+      "passed": true
+    },
+    {
+      "name": "panel quantity changes 1440",
+      "passed": true
+    },
+    {
+      "name": "roof warning 1440",
+      "passed": true
+    },
+    {
+      "name": "invalid input pauses results 1440",
+      "passed": true
+    },
+    {
+      "name": "valid input restores results 1440",
+      "passed": true
+    },
+    {
+      "name": "formula opens 1440",
+      "passed": true
+    },
+    {
+      "name": "reset 1440",
+      "passed": true
+    },
+    {
+      "name": "panel power preset",
+      "passed": true
+    },
+    {
+      "name": "location solar estimate",
+      "passed": true
+    },
+    {
+      "name": "location status clears on reset",
+      "passed": true
+    },
+    {
+      "name": "no overflow 1024",
+      "passed": true
+    },
+    {
+      "name": "11 initial panels 1024",
+      "passed": true
+    },
+    {
+      "name": "results revealed 1024",
+      "passed": true
+    },
+    {
+      "name": "production 858 1024",
+      "passed": true
+    },
+    {
+      "name": "panel quantity changes 1024",
+      "passed": true
+    },
+    {
+      "name": "roof warning 1024",
+      "passed": true
+    },
+    {
+      "name": "invalid input pauses results 1024",
+      "passed": true
+    },
+    {
+      "name": "valid input restores results 1024",
+      "passed": true
+    },
+    {
+      "name": "formula opens 1024",
+      "passed": true
+    },
+    {
+      "name": "reset 1024",
+      "passed": true
+    },
+    {
+      "name": "no overflow 390",
+      "passed": true
+    },
+    {
+      "name": "11 initial panels 390",
+      "passed": true
+    },
+    {
+      "name": "results revealed 390",
+      "passed": true
+    },
+    {
+      "name": "production 858 390",
+      "passed": true
+    },
+    {
+      "name": "panel quantity changes 390",
+      "passed": true
+    },
+    {
+      "name": "roof warning 390",
+      "passed": true
+    },
+    {
+      "name": "invalid input pauses results 390",
+      "passed": true
+    },
+    {
+      "name": "valid input restores results 390",
+      "passed": true
+    },
+    {
+      "name": "formula opens 390",
+      "passed": true
+    },
+    {
+      "name": "reset 390",
+      "passed": true
+    },
+    {
+      "name": "reduced motion",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

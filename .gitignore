@@ -1,0 +1,10 @@
+.next
+node_modules
+out
+dist
+*.log
+.env*
+!.env.example
+*.tsbuildinfo
+codex-frontend-design-skill-main/
+ui-ux-pro-max-skill-main/

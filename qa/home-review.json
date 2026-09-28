@@ -1,0 +1,30 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "horizontalOverflow": false,
+      "overflowingElements": [],
+      "brokenAnchors": [],
+      "experiments": 10,
+      "keyboardDisclosure": true
+    },
+    {
+      "width": 1024,
+      "horizontalOverflow": false,
+      "overflowingElements": [],
+      "brokenAnchors": [],
+      "experiments": 10,
+      "keyboardDisclosure": true
+    },
+    {
+      "width": 390,
+      "horizontalOverflow": false,
+      "overflowingElements": [],
+      "brokenAnchors": [],
+      "experiments": 10,
+      "keyboardDisclosure": true
+    }
+  ],
+  "reducedMotion": true,
+  "errors": []
+}
