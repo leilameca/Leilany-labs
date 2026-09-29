@@ -22,6 +22,13 @@ try {
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
  if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='paint-calculator'){
+  await check('paint default liters',"document.querySelector('[data-testid=liters]').textContent.includes('10.21')");
+  await evaluate("document.querySelector('main input[type=checkbox]').click()");await delay(100);
+  await check('ceiling adds paint',"document.querySelector('[data-testid=liters]').textContent.includes('14.61')");
+  await evaluate("document.querySelector('main input[type=checkbox]').click();document.querySelectorAll('main button[aria-pressed]')[1].click()");await delay(100);
+  await check('color selection does not alter estimate',"document.querySelector('[data-testid=liters]').textContent.includes('10.21') && document.querySelectorAll('main button[aria-pressed]')[1].getAttribute('aria-pressed')==='true'");
+ }
  if(slug==='construction-materials'){
   await evaluate("document.querySelectorAll('main button[aria-pressed]')[1].click()");await delay(100);
   await check('wall mode and block quantity',"!!document.getElementById('blockLength') && document.querySelector('[data-testid=quantity]').textContent.includes('165')");

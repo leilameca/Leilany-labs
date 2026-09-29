@@ -68,6 +68,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.005",
     slug: "paint-calculator",
+    href: "/lab/paint-calculator",
     name: "Paint Calculator",
     shortName: "Paint",
     discipline: "Surface coverage",
