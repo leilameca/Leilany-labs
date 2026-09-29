@@ -22,6 +22,13 @@ try {
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
  if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='work-benefits-rd'){
+  await check('work default tenure',"document.querySelector('[data-testid=tenure]').textContent.includes('4 years')");
+  await evaluate("document.getElementById('work-scope').value='other';document.getElementById('work-scope').dispatchEvent(new Event('change',{bubbles:true}))");await delay(100);
+  await check('unsupported work scenario hides total',"!document.querySelector('[data-testid=work-total]')");
+  await evaluate("document.getElementById('work-scope').value='ordinary';document.getElementById('work-scope').dispatchEvent(new Event('change',{bubbles:true}))");await delay(100);
+  await check('supported work scenario restores total',"!!document.querySelector('[data-testid=work-total]')");
+ }
  if(slug==='furniture-budget'){
   await check('furniture default cost',"document.querySelector('[data-testid=build-cost]').textContent.includes('9,141')");
   await evaluate("[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Add part')).click()");await delay(100);

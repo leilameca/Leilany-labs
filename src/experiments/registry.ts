@@ -148,6 +148,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.010",
     slug: "work-benefits-rd",
+    href: "/lab/work-benefits-rd",
     name: "Work Benefits RD",
     shortName: "Work RD",
     discipline: "Time and documentation",

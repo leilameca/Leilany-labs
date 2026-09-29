@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import {WorkLab} from "./work-lab";export const metadata:Metadata={title:"Work Benefits RD | LEILANY LABS",description:"Explore selected Dominican employment benefit estimates with explicit scope and official references."};export default function Page(){return <WorkLab/>;}
