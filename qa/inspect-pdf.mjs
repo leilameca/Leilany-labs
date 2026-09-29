@@ -25,6 +25,16 @@ try {
  await send('Page.enable');await send('Runtime.enable');
  await send('Page.navigate',{url:base});await wait("!!document.querySelector('.preference-controls button')");await delay(300);
  assert.equal(await evaluate("new Set([...document.querySelectorAll('a[href^=\"/lab/\"]')].map(a=>a.getAttribute('href'))).size"),10,'Home links to every tool');
+ for(const route of ['/','/lab']){
+  await send('Page.navigate',{url:base+route});await wait("!!document.querySelector('.preference-controls button')");await delay(300);
+  for(const width of [1440,390])for(const language of ['es','en'])for(const theme of ['light','dark']){
+   await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+   await evaluate(`if(document.documentElement.lang!=='${language}')document.querySelector('.preference-controls button').click();if(document.documentElement.dataset.theme!=='${theme}')document.querySelectorAll('.preference-controls button')[1].click()`);await delay(150);
+   assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'),route+' overflow');
+   if(language==='es'){const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(path.join(output,`${route==='/'?'home':'lab'}-${width}-${theme}.png`),Buffer.from(shot.data,'base64'));}
+  }
+  await send('Page.reload');await wait("document.documentElement.lang==='en' && document.documentElement.dataset.theme==='dark'");
+ }
  for(const [slug,filename,field,value,en,es] of cases){
   await send('Page.navigate',{url:base+'/lab/'+slug});await wait("!!document.querySelector('[data-testid=pdf-export]')");await delay(350);
   if(slug==='quote-generator'){
@@ -46,8 +56,10 @@ try {
    await evaluate(`if(document.documentElement.lang!=='${language}')document.querySelector('.preference-controls button').click()`);await delay(100);
    for(const theme of ['dark','light']){
     await evaluate(`if(document.documentElement.dataset.theme!=='${theme}')document.querySelectorAll('.preference-controls button')[1].click()`);
-    await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
-    assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'),slug+' mobile overflow');
+    for(const width of [1440,1024,390]){
+     await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
+     assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'),slug+' overflow at '+width);
+    }
    }
    const dir=path.join(output,slug,language);await mkdir(dir,{recursive:true});
    // A separate directory per run prevents a previous download from passing.
@@ -76,5 +88,5 @@ try {
  }
  assert.deepEqual(errors,[],'Runtime exceptions');
  await writeFile(path.join(output,'report.json'),JSON.stringify({base,checkedAt:new Date().toISOString(),checks,errors},null,2));
- console.log(`PASS: ${checks.length} PDF downloads; 10 validation guards; 40 mobile/theme checks; Home links`);
+ console.log(`PASS: ${checks.length} PDF downloads; 10 validation guards; 120 tool layout/theme checks; Home/Lab layouts and preference persistence`);
 } finally {socket?.close();chrome.kill();}

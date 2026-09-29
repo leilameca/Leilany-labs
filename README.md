@@ -78,7 +78,8 @@ node qa/inspect-pdf.mjs https://leilanylabs.vercel.app
 
 The script downloads all 10 reports in both languages, changes inputs, checks
 invalid-input guards, a 600-payment schedule, long quote terms, Home links, mobile
-overflow and both themes. It requires Chrome and MuPDF (`mutool`); set `CHROME_PATH`
+and desktop layouts, both themes and preference persistence. It requires Chrome
+and MuPDF (`mutool`); set `CHROME_PATH`
 and `MUTOOL_PATH` if they are not at the Windows defaults in the script. Generated
 PDFs and results go into ignored `tmp/pdfs/`. Render PDFs for visual review; text
 extraction alone does not verify pagination. See [release checks](docs/release-checks.md).

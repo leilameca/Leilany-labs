@@ -1,5 +1,28 @@
 # Release checks
 
+## Verified release - September 29, 2026
+
+Application commit: `fec5e4b`. Public site: https://leilanylabs.vercel.app.
+
+- Production build and TypeScript checks passed; all 41 calculation tests passed.
+- Local and public-site runs downloaded 20 PDFs each (10 tools, EN and ES).
+- Reports contained changed calculation results; invalid inputs blocked export.
+- A 600-payment Finance report included payment 600 and the zero final balance.
+- Long Spanish quotation terms and accented names exported successfully.
+- Unsupported Work RD scenarios and incomplete quotations blocked export.
+- Public-site checks passed at 1440, 1024 and 390 pixels, in both languages and
+  themes (120 tool layout/theme checks). Home/Lab layouts and preference
+  persistence passed separately. No browser runtime exceptions were observed.
+- Rendered report pages were visually inspected, including long-term quotation
+  pagination and the final amortization page. Home/Lab desktop and mobile
+  screenshots were reviewed in light/dark modes.
+- Home links expose all 10 tools; hero cards now open their tools directly.
+- Home, Lab, countries, Dominican Republic cities and Santo Domingo solar
+  resource endpoints returned HTTP 200 on the public site. This is a point-in-time
+  check; upstream availability is not guaranteed.
+
+Video assets, downloaded PDFs and screenshots stay local and are not release code.
+
 ## Reproducible checks
 
 - `npm run typecheck`
