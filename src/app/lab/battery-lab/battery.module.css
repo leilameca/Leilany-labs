@@ -1,0 +1,12 @@
+.page { --accent:#2c7466; }
+.bench { display:grid; grid-template-columns:1.1fr 1fr; gap:26px; align-items:start; }
+.instrument { padding:32px; border-radius:8px; background:#163e36; color:#f2ffe9; }
+.instrument > span { font:11px var(--font-mono); color:#b9f482; }
+.instrument h2 { font-size:32px; margin:10px 0 24px; }
+.battery { position:relative; width:130px; height:190px; border:6px solid #b9f482; border-radius:12px; margin:36px auto 24px; overflow: hidden; background:#234e45; }
+.battery > div { position:absolute; bottom:0; width:100%; background:repeating-linear-gradient(0deg,#b9f482 0 28px,#2c7466 28px 35px); }
+.battery strong { position:absolute; top:40%; left:0; width:100%; text-align:center; color:#163e36; background:#b9f482; font-size:26px; }
+.runtime { text-align:center; display:grid; gap:4px; }.runtime strong { font-size:68px; line-height:1; color:#b9f482; }.runtime span { font-size:13px; }
+.readouts { display:grid; gap:16px; margin-top:30px; }.readouts > div { display:flex; justify-content:space-between; gap:14px; border-top:1px solid #ffffff30; padding-top:16px; }.readouts span { font-size:12px; }.readouts strong { text-align:right; }
+.instrument p { color:#d4e5dd; }
+@media(max-width:850px){.bench{grid-template-columns:1fr;}.instrument{padding:26px;}}

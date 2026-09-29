@@ -36,6 +36,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.003",
     slug: "battery-lab",
+    href: "/lab/battery-lab",
     name: "Battery Lab",
     shortName: "Battery",
     discipline: "Storage systems",
