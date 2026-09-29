@@ -100,6 +100,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.007",
     slug: "finance-calculator",
+    href: "/lab/finance-calculator",
     name: "Finance Calculator",
     shortName: "Finance",
     discipline: "Money and time",

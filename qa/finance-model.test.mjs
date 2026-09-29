@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {calculateFinance,financeExample as e} from '../src/experiments/finance/model.ts';
+test('zero-rate loan divides principal equally',()=>{const r=calculateFinance({principal:'1200',rate:'0',months:'12',extra:'0'});assert.equal(r.payment,100);assert.equal(r.totalInterest,0);assert.equal(r.rows.at(-1).balance,0);});
+test('amortization reconciles principal and payments',()=>{const r=calculateFinance(e);assert.ok(Math.abs(r.payment-8303.577452)<.00001);assert.equal(r.months,36);assert.ok(Math.abs(r.rows.reduce((n,row)=>n+row.principal,0)-250000)<1e-6);assert.equal(r.rows.at(-1).balance,0);});
+test('extra reduces term and interest, final payment capped',()=>{const r=calculateFinance({...e,extra:'10000'});assert.ok(r.months<36);assert.ok(r.totalInterest<calculateFinance(e).totalInterest);assert.ok(r.rows.at(-1).payment<=r.payment+10000);});
+test('small rates remain stable',()=>assert.ok(Math.abs(calculateFinance({...e,rate:'0.00000001'}).payment-250000/36)<.001));
+test('invalid terms rejected',()=>{for(const input of [{...e,principal:''},{...e,months:'0'},{...e,months:'1.5'},{...e,rate:'-1'}])assert.throws(()=>calculateFinance(input),RangeError);});
