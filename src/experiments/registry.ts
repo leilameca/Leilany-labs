@@ -116,6 +116,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.008",
     slug: "quote-generator",
+    href: "/lab/quote-generator",
     name: "Quote Generator",
     shortName: "Quote",
     discipline: "Documents",

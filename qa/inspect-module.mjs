@@ -22,6 +22,20 @@ try {
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
  if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='quote-generator'){
+  await check('incomplete quote cannot print',"[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Save as PDF')).disabled");
+  await evaluate("[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Add item')).click()");await delay(100);
+  await check('quote adds item',"document.querySelectorAll('fieldset').length===2");
+  await evaluate("document.querySelector('button[aria-label=\"Remove item 2\"]').click()");await delay(100);
+  await check('quote removes item',"document.querySelectorAll('fieldset').length===1 && document.querySelector('[data-testid=quote-total]').textContent.includes('5,000')");
+  for(const [selector,text] of [['#business','Example Studio'],['#client','Example Client'],['input[placeholder]','Design service']]){
+   await evaluate(`document.querySelector(${JSON.stringify(selector)}).focus()`);await send('Input.insertText',{text});await delay(80);
+  }
+  await check('completed quote can print',"![...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Save as PDF')).disabled");
+  await send('Emulation.setEmulatedMedia',{media:'print'});
+  await check('print hides editor and retains document',"getComputedStyle(document.getElementById('business').closest('section')).display==='none' && document.body.innerText.includes('Design service')");
+  await send('Emulation.setEmulatedMedia',{media:'screen'});
+ }
  if(slug==='finance-calculator'){
   await check('first twelve payments',"document.querySelectorAll('tbody tr').length===12");
   await evaluate("[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('full schedule')).click()");await delay(100);
