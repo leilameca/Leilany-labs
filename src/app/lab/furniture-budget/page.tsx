@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import {FurnitureLab} from "./furniture-lab";export const metadata:Metadata={title:"Furniture Budget | LEILANY LABS",description:"Build a furniture budget from materials, fittings, finishing and labor."};export default function Page(){return <FurnitureLab/>;}

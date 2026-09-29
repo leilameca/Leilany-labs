@@ -22,6 +22,13 @@ try {
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
  if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='furniture-budget'){
+  await check('furniture default cost',"document.querySelector('[data-testid=build-cost]').textContent.includes('9,141')");
+  await evaluate("[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Add part')).click()");await delay(100);
+  await check('furniture adds part',"document.querySelectorAll('fieldset').length===5");
+  await evaluate("document.querySelector('button[aria-label=\"Remove part 5\"]').click()");await delay(100);
+  await check('furniture removes part',"document.querySelectorAll('fieldset').length===4");
+ }
  if(slug==='quote-generator'){
   await check('incomplete quote cannot print',"[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Save as PDF')).disabled");
   await evaluate("[...document.querySelectorAll('main button')].find(b=>b.textContent.includes('Add item')).click()");await delay(100);

@@ -132,6 +132,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.009",
     slug: "furniture-budget",
+    href: "/lab/furniture-budget",
     name: "Furniture Budget",
     shortName: "Furniture",
     discipline: "Materials and craft",
