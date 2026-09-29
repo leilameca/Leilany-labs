@@ -1,5 +1,6 @@
 "use client";
 import { T, L, usePreferences, translate } from "@/components/preferences";
+import { PdfExport } from "@/components/pdf-export";
 
 
 import { useId, useState } from "react";
@@ -10,6 +11,7 @@ const format = (value: number, digits = 1) => value.toLocaleString("en-US", { ma
 
 export function ElectricityLab() {
   const { language } = usePreferences();
+  const t = (en: string, es: string) => language === "es" ? es : en;
   const idPrefix = useId().replace(/:/g, "");
   const [appliances, setAppliances] = useState<ApplianceDraft[]>(() => exampleAppliances.map(item => ({ ...item })));
   const [announcement, setAnnouncement] = useState("");
@@ -60,6 +62,7 @@ export function ElectricityLab() {
       </section>
 
       <section className={styles.flow} aria-labelledby="flow-title">
+        <div className="pdf-actions"><PdfExport filename="electricity-consumption-estimate" code="EXP.002 / ELECTRICITY" title={t("Electricity consumption","Consumo eléctrico")} summary={t("Energy estimated from your appliance list.","Energía estimada a partir de tu lista de equipos.")} disabled={!result} results={result ? [[t("Monthly consumption","Consumo mensual"),`${format(result.totalMonthlyKwh)} kWh`],[t("Typical active day","Día activo típico"),`${format(result.totalDailyKwh,2)} kWh`]] : []} tables={result ? [{title:t("Contribution by load","Aporte por carga"),head:[t("Appliance","Equipo"),"kWh", "%"],body:result.rows.map(row=>[translate(row.name,language),format(row.monthlyKwh),format(row.share)])}] : []} /></div>
         <div className={styles.flowTop}><div><span><T>{"02 / ENERGY FLOW"}</T></span><h2 id="flow-title"><T>{"Every load leaves a trace."}</T></h2></div><span className={styles.live}><i /><T>{" LIVE ESTIMATE"}</T></span></div>
         <T>{!result ? <div className={styles.paused}><strong><T>{"Flow paused."}</T></strong><p><T>{"Correct the marked load values to reconnect the estimate."}</T></p></div> : <>
           <div className={styles.circuit}>

@@ -1,5 +1,6 @@
 "use client";
 import { T, L } from "@/components/preferences";
+import { PdfExport } from "@/components/pdf-export";
 
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
@@ -21,6 +22,7 @@ type CityOption = { id: string; name: string; latitude: number; longitude: numbe
 
 export function SolarCalculator() {
   const { language } = usePreferences();
+  const t = (en: string, es: string) => language === "es" ? es : en;
   const [countrySearch, setCountrySearch] = useState("");
   const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   const countryName = (code: string, fallback: string) => new Intl.DisplayNames([language], { type: "region" }).of(code) || fallback;
@@ -142,6 +144,14 @@ export function SolarCalculator() {
   }
   return (
     <>
+      <div className="pdf-actions"><PdfExport filename="solarcalc-estimate" code="EXP.001 / SOLAR" title="SolarCalc" summary={t("Preliminary solar energy and roof estimate.","Estimación preliminar de energía solar y superficie de techo.")} disabled={!result} results={result ? [
+        [t("Installed capacity","Capacidad instalada"),`${number(result.installed,2)} kWp`],
+        [t("Panels","Paneles"),String(result.panels)],
+        [t("Monthly production","Producción mensual"),`${number(result.production)} kWh`],
+        [t("Actual energy coverage","Cobertura energética calculada"),`${number(result.actualCoverage)}%`],
+        [t("Roof required","Techo requerido"),`${number(result.roofRequired)} m²`],
+        [t("Roof area check","Comprobación de superficie"),result.roofProvided ? (result.roofShortfall ? t("Insufficient area","Área insuficiente") : t("Within area only; fit not confirmed","Dentro del área; distribución no confirmada")) : t("Not supplied","No indicada")]
+      ] : []} notes={[t("Not a final engineering design. This energy balance does not estimate bill savings, backup or self-consumption. Weather, shading and orientation affect production.","No es un diseño de ingeniería definitivo. Este balance no estima ahorro, respaldo ni autoconsumo. El clima, las sombras y la orientación afectan la producción.")]} /></div>
       <div className={styles.workspace} data-revealed={revealed}>
         <form className={styles.controls} onSubmit={calculate} noValidate>
           <div className={styles.controlHeading}><h2><T>{"Make it yours"}</T></h2><button type="button" onClick={resetExample}><T>{"Reset example"}</T></button></div>

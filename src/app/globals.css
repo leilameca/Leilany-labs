@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+.pdf-actions { margin-block: 20px; }
+.pdf-export { display: inline-flex; flex-direction: column; gap: 8px; max-width: 100%; }
+.pdf-export button { min-height: 44px; padding: 10px 18px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-paper); color: var(--color-ink); font: inherit; font-weight: 600; cursor: pointer; }
+.pdf-export button:disabled { opacity: .55; cursor: not-allowed; }
+.pdf-export button:focus-visible { outline: 3px solid var(--color-solar-blue); outline-offset: 3px; }
+.pdf-export [role="alert"] { font-size: 14px; }
+@media print { .pdf-export, .pdf-actions { display: none !important; } }
+
 html[data-theme="dark"] { color-scheme: dark; --color-canvas: #111820; --color-paper: #1c2632; --color-ink: #edf1f7; --color-ink-soft: #bac5d3; --color-line: #354251; --color-solar-blue: #8aabff; }
 .preference-controls { display: flex; align-items: center; gap: 6px; }
 .preference-controls button { width: 42px; min-height: 44px; border: 1px solid var(--color-line); border-radius: 6px; background: var(--color-paper); color: var(--color-ink); font: inherit; cursor: pointer; }

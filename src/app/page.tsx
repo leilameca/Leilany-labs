@@ -32,9 +32,9 @@ export default function Home() {
           </div>
           <L as="div" className="ecosystem" aria-label="A glimpse of the solar, paint, finance, and battery experiments">
             <L as="a" className="ecosystem-item ecosystem-solar" href="/lab/solarcalc" aria-label="Open SolarCalc"><span className="mini-label"><T>{"SUNLIGHT TO POSSIBILITY"}</T></span><ToolArtwork kind="solar" /><strong><T>{"SolarCalc"}</T></strong><span className="mini-index"><T>{"01"}</T></span></L>
-            <L as="a" className="ecosystem-item ecosystem-paint" href="#paint-calculator" aria-label="Explore the Paint concept"><ToolArtwork kind="paint" /><strong><T>{"A fresh coat."}</T></strong></L>
-            <L as="a" className="ecosystem-item ecosystem-finance" href="#finance-calculator" aria-label="Explore the Finance concept"><span className="mini-label"><T>{"A LITTLE LONG-TERM THINKING"}</T></span><ToolArtwork kind="finance" /><strong><T>{"Make it add up."}</T></strong></L>
-            <L as="a" className="ecosystem-item ecosystem-battery" href="#battery-lab" aria-label="Explore the Battery Lab concept"><ToolArtwork kind="battery" /><strong><T>{"Full of potential."}</T></strong></L>
+            <L as="a" className="ecosystem-item ecosystem-paint" href="/lab/paint-calculator" aria-label="Explore the Paint concept"><ToolArtwork kind="paint" /><strong><T>{"A fresh coat."}</T></strong></L>
+            <L as="a" className="ecosystem-item ecosystem-finance" href="/lab/finance-calculator" aria-label="Explore the Finance concept"><span className="mini-label"><T>{"A LITTLE LONG-TERM THINKING"}</T></span><ToolArtwork kind="finance" /><strong><T>{"Make it add up."}</T></strong></L>
+            <L as="a" className="ecosystem-item ecosystem-battery" href="/lab/battery-lab" aria-label="Explore the Battery Lab concept"><ToolArtwork kind="battery" /><strong><T>{"Full of potential."}</T></strong></L>
           </L>
           <div className="hero-footnote"><span><T>{"Curiosity, put to work."}</T></span><span><T>{"10 experiments. Endless everyday possibilities."}</T></span></div>
         </section>

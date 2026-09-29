@@ -8,3 +8,8 @@ dist
 *.tsbuildinfo
 codex-frontend-design-skill-main/
 ui-ux-pro-max-skill-main/
+
+# Local video production, tools and generated QA artifacts
+brag-output/
+ffmpeg/
+tmp/
