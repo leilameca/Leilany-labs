@@ -22,6 +22,12 @@ try {
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
  if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='climate-ac-calculator'){
+  await check('climate default capacity',"document.querySelector('[data-testid=cooling]').textContent.includes('6,000')");
+  await evaluate("document.querySelector('main input[type=checkbox]').click()");await delay(100);
+  await check('kitchen adjustment',"document.querySelector('[data-testid=cooling]').textContent.includes('10,000')");
+  await evaluate("document.querySelector('main input[type=checkbox]').click()");
+ }
  if(slug==='paint-calculator'){
   await check('paint default liters',"document.querySelector('[data-testid=liters]').textContent.includes('10.21')");
   await evaluate("document.querySelector('main input[type=checkbox]').click()");await delay(100);

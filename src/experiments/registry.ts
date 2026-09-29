@@ -84,6 +84,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.006",
     slug: "climate-ac-calculator",
+    href: "/lab/climate-ac-calculator",
     name: "Climate / AC Calculator",
     shortName: "Climate",
     discipline: "Thermal comfort",

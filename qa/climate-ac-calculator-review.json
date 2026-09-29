@@ -1,0 +1,130 @@
+{
+  "slug": "climate-ac-calculator",
+  "checks": [
+    {
+      "name": "climate default capacity",
+      "passed": true
+    },
+    {
+      "name": "kitchen adjustment",
+      "passed": true
+    },
+    {
+      "name": "1440 en light no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 en light renders",
+      "passed": true
+    },
+    {
+      "name": "1440 en dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 en dark renders",
+      "passed": true
+    },
+    {
+      "name": "1440 es light no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 es light renders",
+      "passed": true
+    },
+    {
+      "name": "1440 es dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 es dark renders",
+      "passed": true
+    },
+    {
+      "name": "1024 en light no overflow",
+      "passed": true
+    },
+    {
+      "name": "1024 en light renders",
+      "passed": true
+    },
+    {
+      "name": "1024 en dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "1024 en dark renders",
+      "passed": true
+    },
+    {
+      "name": "1024 es light no overflow",
+      "passed": true
+    },
+    {
+      "name": "1024 es light renders",
+      "passed": true
+    },
+    {
+      "name": "1024 es dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "1024 es dark renders",
+      "passed": true
+    },
+    {
+      "name": "390 en light no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 en light renders",
+      "passed": true
+    },
+    {
+      "name": "390 en dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 en dark renders",
+      "passed": true
+    },
+    {
+      "name": "390 es light no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 es light renders",
+      "passed": true
+    },
+    {
+      "name": "390 es dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 es dark renders",
+      "passed": true
+    },
+    {
+      "name": "numeric inputs have labels",
+      "passed": true
+    },
+    {
+      "name": "blank input marked invalid",
+      "passed": true
+    },
+    {
+      "name": "reduced motion renders",
+      "passed": true
+    },
+    {
+      "name": "Home links to module",
+      "passed": true
+    },
+    {
+      "name": "Lab links to module",
+      "passed": true
+    }
+  ],
+  "errors": []
+}
