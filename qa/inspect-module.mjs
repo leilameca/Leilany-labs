@@ -21,6 +21,13 @@ try {
  await send('Page.navigate',{url:`http://localhost:3000/lab/${slug}`});
  for(let i=0;i<120;i++){if(await evaluate("!!document.querySelector('main input')"))break;await delay(250);}
  await delay(500);
+ if(slug==='battery-lab') await check('default battery runtime',"document.querySelector('[data-testid=runtime]').textContent==='6.14'");
+ if(slug==='construction-materials'){
+  await evaluate("document.querySelectorAll('main button[aria-pressed]')[1].click()");await delay(100);
+  await check('wall mode and block quantity',"!!document.getElementById('blockLength') && document.querySelector('[data-testid=quantity]').textContent.includes('165')");
+  await evaluate("document.querySelectorAll('main button[aria-pressed]')[0].click()");await delay(100);
+  await check('slab mode restored',"!!document.getElementById('thickness') && !document.getElementById('blockLength')");
+ }
  for(const width of [1440,1024,390]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
   for(const language of ['en','es'])for(const theme of ['light','dark']){

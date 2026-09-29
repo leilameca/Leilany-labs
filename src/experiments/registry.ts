@@ -52,6 +52,7 @@ export const experiments: ExperimentDefinition[] = [
   {
     number: "EXP.004",
     slug: "construction-materials",
+    href: "/lab/construction-materials",
     name: "Construction Materials",
     shortName: "Build",
     discipline: "Measurement",

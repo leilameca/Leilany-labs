@@ -1,0 +1,28 @@
+"use client";
+import { useState } from "react";
+import { LabPage, NumberField, Paused, useCopy, labStyles as s } from "@/components/lab-primitives";
+import { constructionExample, calculateConstruction, type ConstructionMode } from "@/experiments/construction/model";
+import { estimate } from "@/experiments/numbers";
+import styles from "./construction.module.css";
+export function ConstructionLab(){
+ const {t,number}=useCopy();const [input,setInput]=useState(constructionExample);const [mode,setMode]=useState<ConstructionMode>("slab");
+ const r=estimate(()=>calculateConstruction(input,mode));
+ const field=(key:keyof typeof input,label:string,unit:string,min=0,max=1000)=><NumberField id={key} label={label} unit={unit} value={input[key]} onChange={value=>setInput({...input,[key]:value})} min={min} max={max}/>;
+ return <LabPage code="EXP.004 / CONSTRUCTION" title={t("Measure twice. Plan once.","Mide dos veces. Planifica una.")} intro={t("A measured sketch becomes a material list. Start with a slab or a simple block wall.","Convierte un boceto con medidas en una lista de materiales. Empieza con una losa o un muro de bloques.")} className={styles.page}>
+  <div className={styles.selector} role="group" aria-label={t("Project type","Tipo de proyecto")}><button aria-pressed={mode==='slab'} onClick={()=>setMode('slab')}>{t("01 / Concrete slab","01 / Losa de concreto")}</button><button aria-pressed={mode==='wall'} onClick={()=>setMode('wall')}>{t("02 / Block wall","02 / Muro de bloques")}</button></div>
+  <div className={styles.drafting}>
+   <section className={styles.sketch} aria-label={t("Dimension sketch, not to scale","Croquis de dimensiones, no a escala")}><span>{t("PROJECT SKETCH · NOT TO SCALE","CROQUIS DEL PROYECTO · NO A ESCALA")}</span>
+    <svg viewBox="0 0 500 320" role="img" aria-label={mode==='slab'?t("Slab length, width and thickness","Largo, ancho y espesor de la losa"):t("Wall length and height","Largo y alto del muro")}>
+     {mode==='slab'?<><path d="M80 170 300 80 435 160 215 250Z" fill="#f4dfc7" stroke="#8a4728" strokeWidth="3"/><path d="M80 170V195L215 275V250M215 275 435 185V160" fill="#eab483" stroke="#8a4728" strokeWidth="3"/><text x="90" y="105">{input.length||'—'} m</text><text x="315" y="270">{input.width||'—'} m</text><text x="345" y="310">{input.thickness||'—'} cm</text></>:<><rect x="70" y="65" width="355" height="190" fill="#f48c45" stroke="#8a4728" strokeWidth="3"/>{[1,2,3].map(i=><path key={i} d={`M70 ${65+i*47.5}H425`} stroke="#f4dfc7" strokeWidth="4"/>)}{[1,2,3,4].map(i=><path key={i} d={`M${70+i*71} 65V255`} stroke="#f4dfc7" strokeWidth="4"/>)}<text x="190" y="40">{input.length||'—'} m</text><text x="190" y="300">{input.height||'—'} m ↑</text></>}
+    </svg><p>{t("The drawing explains the dimensions; it is not a construction plan.","El dibujo explica las medidas; no es un plano de construcción.")}</p>
+   </section>
+   <section className={s.panel}><h2>{t("Set the dimensions","Define las medidas")}</h2><div className={s.fields}>
+    {field('length',t('Length','Largo'),'m',.1)}
+    {mode==='slab'?<>{field('width',t('Width','Ancho'),'m',.1)}{field('thickness',t('Thickness','Espesor'),'cm',.1)}</>:<>{field('height',t('Height','Alto'),'m',.1,100)}{field('openings',t('Doors and windows area','Área de puertas y ventanas'),'m²',0,100000)}{field('blockLength',t('Block module length, including joint','Largo modular del bloque, incluida junta'),'cm',1,200)}{field('blockHeight',t('Block module height, including joint','Alto modular del bloque, incluida junta'),'cm',1,200)}</>}
+    {field('waste',t('Waste allowance','Desperdicio'), '%',0,100)}
+   </div>{mode==='wall'&&Number(input.openings)>=Number(input.length)*Number(input.height)&&<p role="alert" className={s.note}>{t('Openings must be smaller than the wall area.','Las aberturas deben ser menores que el área del muro.')}</p>}<div className={s.actions}><button onClick={()=>setInput(constructionExample)}>{t('Reset example','Restablecer ejemplo')}</button></div></section>
+  </div>
+  <section className={styles.takeoff} aria-labelledby="takeoff-title"><h2 id="takeoff-title">{t('Your material takeoff','Tu estimación de materiales')}</h2>{!r?<Paused/>:<div className={s.stats}><div><span>{t('Net surface','Superficie neta')}</span><strong>{number(r.netArea)} m²</strong></div><div><span>{mode==='slab'?t('Concrete before waste','Concreto sin desperdicio'):t('Units before waste','Unidades sin desperdicio')}</span><strong>{number(r.baseQuantity)} {mode==='slab'?'m³':''}</strong></div><div><span>{t('Including waste','Incluido desperdicio')}</span><strong data-testid="quantity">{number(r.quantity,mode==='slab'?3:0)} {mode==='slab'?'m³':t('blocks','bloques')}</strong></div></div>}</section>
+  <details><summary>{t('Measurements and assumptions','Medidas y supuestos')}</summary><p>{t('Slab: length × width × thickness (meters). Wall: (length × height − openings) ÷ block module area. Waste is applied once, then blocks are rounded up.','Losa: largo × ancho × espesor (metros). Muro: (largo × alto − aberturas) ÷ área modular del bloque. El desperdicio se aplica una vez y los bloques se redondean hacia arriba.')}</p><p className={s.note}>{t('Quantity estimate only. No reinforcement, mortar, foundations, mix design, delivery minimums or structural verification included. Confirm dimensions and specifications with your project professional before purchasing.','Solo estimación de cantidades. No incluye acero, mortero, cimentaciones, dosificación, mínimos de entrega ni verificación estructural. Confirma medidas y especificaciones con el profesional del proyecto antes de comprar.')}</p></details>
+ </LabPage>;
+}
